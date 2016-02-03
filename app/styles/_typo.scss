@@ -1,0 +1,70 @@
+// -------------------------------------------------
+//
+// Font face
+// 
+// -------------------------------------------------
+
+
+/* Webfont: ArialMT-ExtraBold */@font-face {
+    font-family: 'ArialMT';
+    src: url('../fonts/ArialMT-ExtraBold.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ArialMT-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ArialMT-ExtraBold.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ArialMT-ExtraBold.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ArialMT-ExtraBold.svg#ArialMT-ExtraBold') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
+
+
+
+/* Webfont: Bebas */@font-face {
+    font-family: 'Bebas';
+    src: url('../fonts/Bebas.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Bebas.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/Bebas.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/Bebas.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/Bebas.svg#Bebas') format('svg'); /* Legacy iOS */
+    font-style: bold;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
+
+// -------------------------------------------------
+//
+// Styles
+// 
+// -------------------------------------------------
+
+
+
+body{
+	font-family: 'ArialMT', 'Bebas', Helvetica, sans-serif;
+}
+
+p{
+    line-height: 1;
+    margin: 0;
+}
+
+h1{
+	font-weight: bold;
+	font-size: 3em;
+    line-height: 1;
+	@include mq("medium"){
+		font-size: 6em;
+	}
+	@include mq("large"){
+		font-size: 8em;
+	}
+    @include mq("extra-large"){
+        font-size: 10em;
+    }
+	@include mq("extra-extra-large"){
+		font-size: 12em;
+	}
+}

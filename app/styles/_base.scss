@@ -1,0 +1,202 @@
+@include keyframes(marquee){
+	from{
+		text-indent: 50%;
+	}
+	to{
+		text-indent: -105em;
+	}
+}
+
+html,body{
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+}
+
+
+
+.dollaz-container{
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	background: white;
+	color: white;
+	@include display(flex);
+	@include align-items(center);
+	@include justify-content(center);
+	@include flex-direction(column);
+	cursor: pointer;
+	h1{
+		display: inline-block;
+		@include user-select(none);
+		text-shadow: 2px 2px 2px black;
+		.swap{
+			color: rgba(0,255,0,1);
+			&:hover{
+				color: rgba(0,0,255,1);
+				
+			}
+		}
+	}
+
+
+	p.message{
+		width: 100%;
+		overflow: hidden;
+		white-space: nowrap;
+		font-family: 'Bebas';
+		display: block;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		background: white;
+		color: black;
+		height: 30px;
+		line-height: 30px;
+		letter-spacing: 1px;
+		@include animation(marquee 50s linear infinite);
+
+	}
+
+	.time{
+		position: absolute;
+		top: 10px;
+		right: 20px;
+		text-align: right;
+		font-family: 'Bebas';
+		height: 30px;
+		pointer-events: auto;
+		text-shadow: 1px 1px 2px black;
+		p{
+			line-height: 30px;
+			i{
+				vertical-align: middle;
+				line-height: 30px;
+				margin-left: 10px;
+				font-size: 1.1em;
+			}
+			.time{
+				user-select: all;
+			}
+		}
+	}
+
+	.image-preload{
+		display: none;
+	}
+}
+
+
+.footer-ticker{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: auto;
+	background: white;
+	color: black;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	.ticker-outer-container{
+		position: relative;
+		line-height: 30px;
+		display: inline-block;
+        white-space: nowrap;
+         position: relative;
+		p{
+			margin: 0;
+			line-height: 30px;
+			vertical-align: middle;
+			padding: 0;
+			text-transform: uppercase;
+			padding: 0 10px;
+			white-space: nowrap;
+			margin: 0 10px;
+			overflow: hidden;
+			width: auto;
+		}
+	}
+}
+
+.sound-container{
+	position: absolute;
+	bottom: 40px;
+	right: 10px;
+	height: 30px;
+	font-family: 'Bebas';
+	cursor: pointer;
+	text-shadow: 2px 2px 2px black;
+	span{
+		line-height: 30px;
+		letter-spacing: -3px;
+		padding: 5px;
+		&.sound-on{
+			&:after{
+				content: '⏐⏐';
+				@include transform(scaleY(0.8));
+			}
+		}
+		&.sound-off{
+			&:after{
+				content: '►';
+			}
+		}
+		
+	}
+}
+
+
+// .loading{
+// 	position: fixed;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	z-index: 9;
+// 	background: black;
+// 	color: white;
+// 	@include display(flex);
+// 	@include align-items(center);
+// 	@include justify-content(center);
+// 	text-align: center;
+// 	@include fast();
+// 	h1{
+// 		font-size: 4em;
+// 		@include animation(blink 0.4s linear infinite);
+// 		@include mq("large"){
+// 			font-size: 8em;
+// 		}
+// 	}
+// }
+
+.background-container{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	//background: url(../images/counting.gif) no-repeat center center;
+	background-size: cover !important;
+	z-index: -1;
+}
+
+.fb_iframe_widget{
+	position: absolute !important;
+	top: 10px !important;
+	left: 100px !important;
+	width: 50px !important;
+	height: 30px !important;
+	display: inline-block;
+}
+
+.twitter-share-button{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 50px;
+	height: 30px;
+	display: inline-block;
+}

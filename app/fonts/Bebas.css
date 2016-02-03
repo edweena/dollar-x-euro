@@ -1,0 +1,12 @@
+/* Webfont: Bebas */@font-face {
+    font-family: 'Bebas';
+    src: url('Bebas.eot'); /* IE9 Compat Modes */
+    src: url('Bebas.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Bebas.woff') format('woff'), /* Modern Browsers */
+         url('Bebas.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('Bebas.svg#Bebas') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
