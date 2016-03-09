@@ -10,6 +10,7 @@ const Money = React.createClass({
 
 
 	render: function(){
+
 		return (
 			<h1>
 				<a className="swap">{this.props.exchange.one} / {this.props.exchange.two}</a>

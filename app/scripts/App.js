@@ -21,7 +21,9 @@ const App = React.createClass({
 		return {
 			exchange: {
 				one: '~',
-				two: '~'
+				two: '~',
+				usd: 1.00,
+				eur: 1.00
 			},
 			rates: {},
 			currency: 'USD'
@@ -32,29 +34,34 @@ const App = React.createClass({
 	//
 	
 	componentDidMount: function(){
+
+		console.log(' R D S . Z o n e ');
 		const self = this;
 
 		request({
 			type: 'GET',
-			url: 'http://api.fixer.io/latest?base=' + self.state.currency,
+			url: 'http://www.apilayer.net/api/live?access_key=d537bc8370bc38ee7109e2c7670449fd&format=1&currencies=EUR',
 			json: true
 		}, function(err, res, body){
+
+
 			if (err){
 				console.warn(err);
 				throw new Err(err);
 			}
+
 
 			else{
 				const data = 
 				self.setState({
 					exchange: {
 						one: '$1',
-						two: '€' + body.rates.EUR.toFixed(4)
+						two: '€' + body.quotes.USDEUR.toFixed(4)
 					},
-					rates: body
+					USD: 1,
+					EUR: body.quotes.USDEUR.toFixed(4)
 				});
 
-				console.log(self.state);
 			}
 		});
 
@@ -65,13 +72,12 @@ const App = React.createClass({
 		
 		if (this._flag === 0){
 			
-			const amount = (1 / this.state.rates.rates.EUR).toFixed(4);
+			const amount = (1 / this.state.EUR).toFixed(4);
 
 			this.setState({
 				exchange: {
 					one: '€1',
-					two: '$' + amount.toString(),
-					rates: this.state.rates.rates
+					two: '$' + amount.toString()
 				}
 			});
 			this._flag = 1;
@@ -79,13 +85,12 @@ const App = React.createClass({
 
 		else{
 
-			const amount = this.state.rates.rates.EUR.toFixed(4);
+			const amount = this.state.EUR;
 
 			this.setState({
 				exchange: {
 					one: '$1',
-					two: '€' + amount.toString(),
-					rates: this.state.rates.rates
+					two: '€' + amount.toString()
 				}
 			});
 			this._flag = 0;

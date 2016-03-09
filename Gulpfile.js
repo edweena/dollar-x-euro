@@ -47,6 +47,7 @@ const rev = require('gulp-rev');
 const revNapkin = require('gulp-rev-napkin');
 const revReplace = require('gulp-rev-replace');
 const runSequence = require('run-sequence');
+const s3 = require('gulp-s3');
 const sass = require('gulp-sass');
 const size = require('gulp-size');
 const source = require('vinyl-source-stream');
@@ -182,7 +183,7 @@ function bundleJs(bundler){
 // Bundle production scripts
 //
 
-function bundleJsProd(bundler, cb){
+function bundleJsProd(bundler){
 
     bundler.bundle()
         .on('error', function(err){
@@ -197,7 +198,6 @@ function bundleJsProd(bundler, cb){
         .pipe(gulp.dest(config.scripts.dest))
         .pipe(size({showFiles: true}));
 
-    cb();
 }
 
 
@@ -410,6 +410,22 @@ gulp.task('browser-sync', function(){
     });
 
 });
+
+
+// -------------------------------------------------
+//
+// Deploy
+// 
+// -------------------------------------------------
+gulp.task('s3', function(){
+
+    var aws = JSON.parse(fs.readFileSync('./env.json'));
+
+    gulp.src('./build/**')
+        .pipe(s3(aws));
+
+});
+
 
 
 

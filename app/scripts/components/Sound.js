@@ -33,7 +33,7 @@ const Audio = React.createClass({
 			loop: true,
 			autoplay: true,
 			onplay: function(){
-				console.log('audio playing');
+
 				self.setState({
 					sound: sound,
 					playing: true

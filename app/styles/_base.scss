@@ -22,7 +22,7 @@ html,body{
 	height: 100%;
 	overflow: hidden;
 	position: absolute;
-	background: white;
+	background: black;
 	color: white;
 	@include display(flex);
 	@include align-items(center);
@@ -125,18 +125,23 @@ html,body{
 	position: absolute;
 	bottom: 40px;
 	right: 10px;
-	height: 30px;
+	height: 40px;
+	width: 40px;
+	text-align: center;
 	font-family: 'Bebas';
 	cursor: pointer;
-	text-shadow: 2px 2px 2px black;
+	border-radius: 50%;
+	background: black;
 	span{
-		line-height: 30px;
+		line-height: 40px;
 		letter-spacing: -3px;
 		padding: 5px;
+		color: white;
 		&.sound-on{
 			&:after{
 				content: '⏐⏐';
-				@include transform(scaleY(0.8));
+				@include transform(translateY(-4px) translateX(-2px));
+				display: inline-block;
 			}
 		}
 		&.sound-off{

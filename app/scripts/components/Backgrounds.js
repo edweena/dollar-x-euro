@@ -10,32 +10,39 @@ const Backgrounds = React.createClass({
 	_interval: 9000,
 
 	_backgrounds: [
-      'counting',
-      'beyonce',
-      'spread',
-      'box',
-      'drop',
-      'minaj',
-      'celebration',
-      'kid',
-      'bands',
-      'jewels',
-      'juelz',
-      'machine',
-      'meek',
-      'money',
-      'screen',
-      'tiara',
-      'nails',
-      'sparkle',
-      'riff',
-      'kim'
+		'cartoon1',
+		'counting',
+		'beyonce',
+		'spread',
+		'count',
+		'simpsons',
+		'box',
+		'drop',
+		'minaj',
+		'celebration',
+		'machine2',
+		'wolf',
+		'kid',
+		'bands',
+		'jewels',
+		'juelz',
+		'machine',
+		'minaj2',
+		'meek',
+		'money',
+		'screen',
+		'tupac',
+		'euro-rain',
+		'tiara',
+		'riff',
+		'kim',
+		'euro-cartoon'
     ],
 
 	getInitialState: function(){
 		return {
 			swapStarted: false,
-			index: 0,
+			index: Math.floor(Math.random() * this._backgrounds.length),
 			loadedImages: []
 		}
 	},
@@ -116,8 +123,6 @@ const Backgrounds = React.createClass({
 
 	render: function(){
 		const self = this;
-		console.log('url(images/' + self.state.loadedImages[this.state.index] + '.gif) no-repeat center center');
-
 		let style = {
 			background: 'url("images/' + self.state.loadedImages[this.state.index] + '.gif") no-repeat center center'
 		};
